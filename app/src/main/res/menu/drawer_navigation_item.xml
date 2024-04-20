@@ -21,6 +21,13 @@
                 android:title="Sqlite"
                 app:showAsAction="ifRoom"/>
 
+            <!-- Sqlite Item -->
+            <item
+                android:id="@+id/googlemap"
+                android:icon="@drawable/map"
+                android:title="Sqlite"
+                app:showAsAction="ifRoom"/>
+
             <!-- Logout Item -->
             <item
                 android:id="@+id/logout"

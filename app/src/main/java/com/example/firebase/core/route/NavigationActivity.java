@@ -18,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 // Google Sign-In components
 import com.example.firebase.R;
 import com.example.firebase.core.auth.AuthenticationActivity;
+import com.example.firebase.gmap.MapsFragment;
 import com.example.firebase.note.firebase.presentation.page.NoteActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -121,6 +122,10 @@ public class NavigationActivity extends AppCompatActivity {
         } else if (itemId == R.id.sqlite) {
             handleSqliteItemClick();
             return true;
+        } else if (itemId == R.id.googlemap) {
+            handleGoogleMapItemClick();
+            return true;
+
         }else if (itemId == R.id.logout) {
             handleLogoutItemClick();
             return true;
@@ -146,6 +151,14 @@ public class NavigationActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
+    private void handleGoogleMapItemClick() {
+        Log.d(TAG, "Google Maps item clicked");
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, new MapsFragment())
+                .commit();
+        topAppBar.setTitle("Map");
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
     private void handleLogoutItemClick() {
         Log.d(TAG, "Logout item clicked");
 
